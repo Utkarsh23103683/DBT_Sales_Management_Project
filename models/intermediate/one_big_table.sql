@@ -1,7 +1,13 @@
 select
     {{
         dbt_utils.generate_surrogate_key(
-            ["order_id", "customer_id", "order_item_id", "product_id", "store_id"]
+            [
+                "o.order_id",
+                "o.customer_id",
+                "oi.order_item_id",
+                "p.product_id",
+                "s.store_id",
+            ]
         )
     }} as order_key,
     o.order_id,
@@ -10,26 +16,25 @@ select
     o.order_status,
     o.total_amount,
     o.store_id,
-    c.customer_id,
     c.full_name as customer_name,
     c.phone as customer_phone,
     e.employee_id,
     e.full_name as employee_full_name,
     e.job_title as employee_job_title,
     e.salary as employee_salary,
-    e.store_id,
+    e.store_id as employee_store_id,
     oi.order_item_id,
-    oi.order_id,
+    oi.order_id as order_item_order_id,
     oi.quantity,
     oi.unit_price,
     oi.total_price,
     oi.product_id,
-    p.product_id,
+    p.product_id as product_product_id,
     p.product_name,
     p.category as product_category,
     p.brand as product_brand,
     p.price as product_price,
-    s.store_id,
+    s.store_id as store_store_id,
     s.store_name,
     s.province as store_province,
     s.country as store_country,
