@@ -2,6 +2,7 @@
 
 select
     order_item_id,
+    product_id,
     quantity,
     unit_price,
     line_amount as total_price,
