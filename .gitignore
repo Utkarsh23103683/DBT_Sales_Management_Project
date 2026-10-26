@@ -7,6 +7,5 @@ wheels/
 *.egg-info
 .venv
 target/
-dbt_packages/
 logs/
 .env
