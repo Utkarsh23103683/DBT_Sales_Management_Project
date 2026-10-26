@@ -3,7 +3,7 @@ version: 2
 sources:
     - name: raw_source
       database: catalog_test3_dbt
-      schema: bronze
+      schema: raw
       tables:
         - name: customers
           description:  table contains customer information
