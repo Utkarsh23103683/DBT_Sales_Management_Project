@@ -1,0 +1,12 @@
+Test3:
+  outputs:
+    dev:
+      catalog: catalog_test3_dbt
+      auth_type: token
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      schema: silver
+      threads: 1
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      type: databricks
+  target: dev
