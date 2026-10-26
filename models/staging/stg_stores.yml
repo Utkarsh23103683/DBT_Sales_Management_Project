@@ -18,4 +18,5 @@ models:
           data_tests:
             - not_null
             - accepted_values:
-                values: ['Active', 'Inactive']
+                arguments:
+                  values: ['Active', 'Inactive']

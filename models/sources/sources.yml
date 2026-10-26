@@ -6,19 +6,19 @@ sources:
       schema: bronze
       tables:
         - name: customers
-          Description:  table contains customer information
+          description:  table contains customer information
 
         - name: employees
-          Decsription:  table contains employee information
+          decsription:  table contains employee information
         
         - name: order_items
-          Description: table contains details about items associated with orders
+          description: table contains details about items associated with orders
 
         - name: orders
-          Description: table contains data related to customer orders
+          description: table contains data related to customer orders
         
         - name: products
-          Description: table contains data related to products
+          description: table contains data related to products
         
         - name: stores
-          Description: table contains information about stores
+          description: table contains information about stores

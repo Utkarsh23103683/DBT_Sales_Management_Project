@@ -27,5 +27,6 @@ models:
         description: "The active status of the customer, derived from the is_active field."
         data_tests:
             - accepted_values:
-                values: ['Active', 'Inactive']
+                arguments:
+                  values: ['Active', 'Inactive']
         

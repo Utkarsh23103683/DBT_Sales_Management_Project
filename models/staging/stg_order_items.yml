@@ -25,4 +25,5 @@ models:
         description: "Indicates whether the order item is active or not."
         data_tests:
             - accepted_values:
-                values: ['Active', 'Inactive']
+                arguments:
+                  values: ['Active', 'Inactive']

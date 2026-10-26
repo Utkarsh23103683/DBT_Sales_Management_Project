@@ -21,4 +21,5 @@ models:
         description: "Indicates whether the employee is currently active."
         data_tests:
           - accepted_values:
-              values: ['Active', 'Inactive']
+              arguments:
+                values: ['Active', 'Inactive']
