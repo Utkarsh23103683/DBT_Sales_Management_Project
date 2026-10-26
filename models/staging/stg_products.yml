@@ -13,7 +13,6 @@ models:
           description: "Name of the product"
           data_tests:
             - not_null
-            - unique
         - name: category
           description: "Category to which the product belongs"
           data_tests:

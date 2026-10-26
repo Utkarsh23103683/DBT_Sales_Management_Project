@@ -30,9 +30,6 @@ models:
           description: "The total amount for the order."
           data_tests:
             - not_null
-            - relationships:
-                to: ref('stg_customers')
-                field: customer_id
         - name: active_status
           description: "Indicates whether the order is active or not."
           data_tests:

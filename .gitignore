@@ -9,3 +9,4 @@ wheels/
 target/
 logs/
 .env
+dbt_packages/

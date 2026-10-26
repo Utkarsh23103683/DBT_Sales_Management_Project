@@ -1,3 +1,4 @@
-select *
-from ref {{ "one_big_table" }}
-where order_key is not unique or order_key is null
+select order_key, count(*) as row_count
+from {{ ref("one_big_table") }}
+group by order_key
+having count(*) > 1 or order_key is null
