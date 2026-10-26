@@ -16,10 +16,13 @@ clean-targets:
 
 models:
   Test3:
-    silver: 
+    staging: 
+      +schema: bronze
+      +materialized: table
+    intermediate:
       +schema: silver
       +materialized: table
-    gold:
+    marts:
       +schema: gold
-      +materialized: table
+      +materialized: view
 
