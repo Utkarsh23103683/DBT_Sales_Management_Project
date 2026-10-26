@@ -18,11 +18,6 @@ select
     o.store_id,
     c.full_name as customer_name,
     c.phone as customer_phone,
-    e.employee_id,
-    e.full_name as employee_full_name,
-    e.job_title as employee_job_title,
-    e.salary as employee_salary,
-    e.store_id as employee_store_id,
     oi.order_item_id,
     oi.order_id as order_item_order_id,
     oi.quantity,
@@ -45,7 +40,6 @@ join {{ ref("stg_products") }} p on oi.product_id = p.product_id
 join {{ ref("stg_orders") }} o on oi.order_id = o.order_id
 join {{ ref("stg_stores") }} s on o.store_id = s.store_id
 join {{ ref("stg_customers") }} c on o.customer_id = c.customer_id
-join {{ ref("stg_employees") }} e on o.store_id = e.store_id
 
 where
     oi.active_status = 'Active'
@@ -53,4 +47,3 @@ where
     and o.active_status = 'Active'
     and s.active_status = 'Active'
     and c.active_status = 'Active'
-    and e.active_status = 'Active'
