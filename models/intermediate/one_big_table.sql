@@ -38,7 +38,7 @@ select
     s.store_name,
     s.province as store_province,
     s.country as store_country,
-    {{ is_active_status("s.is_active") }} as store_active_status
+    {{ is_active_status("s.active_status") }} as store_active_status
 
 from {{ ref("stg_order_items") }} oi
 join {{ ref("stg_products") }} p on oi.product_id = p.product_id
