@@ -2,7 +2,6 @@
 
 select
     order_id,
-    f
     customer_id,
     payment_method,
     order_status,
