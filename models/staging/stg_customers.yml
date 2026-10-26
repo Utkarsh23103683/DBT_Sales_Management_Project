@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "This model is a staging model for the customers table."
+    columns:
+      - name: customer_id
+        description: "The unique identifier for each customer."
+        data_tests:
+            - not_null
+            - unique
+      - name: full_name
+        description: "The full name of the customer, derived from first_name and last_name."
+        data_tests:
+            - not_null
+      - name: email
+        description: "The email address of the customer."
+        data_tests:
+            - not_null
+            - unique
+      - name: phone
+        description: "The phone number of the customer, cast to an integer."
+        data_tests:
+            - not_null
+            - unique
+      - name: is_active
+        description: "The active status of the customer, derived from the is_active field."
+        data_tests:
+            - accepted_values:
+                values: ['Active', 'Inactive']
+        

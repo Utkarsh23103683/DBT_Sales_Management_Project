@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_employees
+    description: "This model is a staging model for the employees table."
+    columns:
+      - name: employee_id
+        description: "The unique identifier for each employee."
+        data_tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: "The full name of the employee."
+        data_tests:
+          - not_null
+      - name: salary
+        description: "The salary of the employee."
+        data_tests:
+          - not_null
+      - name: active_status
+        description: "Indicates whether the employee is currently active."
+        data_tests:
+          - accepted_values:
+              values: ['Active', 'Inactive']

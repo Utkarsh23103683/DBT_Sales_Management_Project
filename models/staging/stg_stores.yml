@@ -1,0 +1,21 @@
+version: 2
+
+models: 
+    - name: stg_stores
+      description: "This model is a staging model for the stores table."
+      columns:
+        - name: store_id
+          description: "The unique identifier for each store."
+          data_tests:
+            - not_null
+            - unique
+        - name: store_name
+          description: "The name of the store."
+          data_tests:
+            - not_null
+        - name: active_status
+          description: "Indicates whether the store is active or inactive."
+          data_tests:
+            - not_null
+            - accepted_values:
+                values: ['Active', 'Inactive']

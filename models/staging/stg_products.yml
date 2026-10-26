@@ -1,0 +1,34 @@
+version: 2
+
+models:
+    - name: stg_products
+      description: "Staging model for products"
+      columns:
+        - name: product_id
+          description: "Unique identifier for the product"
+          data_tests:
+            - not_null
+            - unique
+        - name: product_name
+          description: "Name of the product"
+          data_tests:
+            - not_null
+            - unique
+        - name: category
+          description: "Category to which the product belongs"
+          data_tests:
+            - not_null
+        - name: price
+          description: "Price of the product"
+          data_tests:
+            - not_null
+        - name: brand
+          description: "Brand of the product"
+          data_tests:
+            - not_null
+        - name: active_status
+          description: "Indicates whether the product is active or inactive"
+          data_tests:
+            - not_null
+            - accepted_values:
+                values: ['Active', 'Inactive']

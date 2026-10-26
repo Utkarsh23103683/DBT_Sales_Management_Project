@@ -1,0 +1,46 @@
+name: dbt CI
+
+on:
+    pull_request:
+    push:
+        branches: [main]
+jobs:
+    dbt-check:
+        runs-on: ubuntu-latest
+
+        env: 
+            DATABRICKS_TOKEN: ${{ secrets.DBT_DATABRICKS_TOKEN }}
+            DATABRICKS_HOST: ${{ secrets.DBT_DATABRICKS_HOST }}
+            DATABRICKS_HTTP_PATH: ${{ secrets.DBT_DATABRICKS_HTTP_PATH }}
+        
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v4
+
+            - name: install python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.11'
+            
+            - name: install uv
+              uses: astral-sh/setup-uv@v5
+
+            - name: install project dependencies
+              run: uv sync --locked
+
+            - name: configure dbt profile
+              run: |
+                mkdir -p ~/.dbt
+                cp profiles.yml ~/.dbt/profiles.yml
+
+            - name: check dbt connection
+              run: uv run dbt debug
+            
+            - name: install dbt dependencies
+              run: uv run dbt deps
+
+            - name: compile dbt models
+              run: uv run dbt compile
+
+            - name: run dbt models and tests
+              run: uv run dbt build

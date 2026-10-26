@@ -1,0 +1,10 @@
+version: 2
+
+models:
+    - name: one_big_table
+      description: "This model is a one big model joining all the tables together."
+      columns: 
+        - name: order_key
+          data_tests: 
+            - not_null
+            - unique

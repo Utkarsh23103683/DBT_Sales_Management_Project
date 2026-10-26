@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: "This model is a staging model for the order_items table."
+    columns:
+      - name: order_item_id
+        description: "The unique identifier for each order item."
+        data_tests:
+            - not_null
+            - unique
+      - name: quantity
+        description: "The quantity of the product ordered."
+        data_tests:
+            - not_null
+      - name: unit_price
+        description: "The price of the product at the time of the order."
+        data_tests:
+            - not_null
+      - name: total_price
+        description: "The total price for the order item, calculated as quantity * unit_price."
+        data_tests:
+            - not_null
+      - name: active_status
+        description: "Indicates whether the order item is active or not."
+        data_tests:
+            - accepted_values:
+                values: ['Active', 'Inactive']
